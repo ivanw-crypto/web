@@ -212,7 +212,7 @@ export default function ChatComposer({
           )}
 
           {/* Input row */}
-          <div className="flex items-center gap-2 rounded-2xl border border-border bg-card px-3 py-2.5 shadow-lg shadow-black/8 transition-shadow duration-250 focus-within:border-primary/25 focus-within:shadow-xl focus-within:shadow-primary/8 focus-within:ring-2 focus-within:ring-primary/10">
+          <div className="flex items-center gap-2 rounded-2xl border border-border bg-card px-3 py-2 shadow-lg shadow-black/8 transition-shadow duration-250 focus-within:border-primary/25 focus-within:shadow-xl focus-within:shadow-primary/8 focus-within:ring-2 focus-within:ring-primary/10">
             {/* File upload button */}
             <button
               type="button"

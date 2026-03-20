@@ -1,51 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "@xterm/xterm/css/xterm.css";
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @config "../tailwind.config.js";
 
-/* ── Dark mode (default) — "Terra" warm earth-tone palette ──── */
+/* ── Dark mode (default) — cold navy, crypto.com-inspired ───── */
 :root {
-  --background: 25 15% 6%;
-  --foreground: 35 20% 88%;
-  --card: 25 12% 10%;
-  --card-foreground: 35 20% 88%;
-  --primary: 16 72% 56%;
-  --primary-foreground: 35 40% 96%;
-  --secondary: 25 10% 14%;
-  --secondary-foreground: 35 20% 88%;
-  --muted: 25 8% 14%;
-  --muted-foreground: 25 10% 52%;
-  --accent: 25 10% 17%;
-  --accent-foreground: 35 20% 88%;
-  --destructive: 0 62% 42%;
-  --destructive-foreground: 35 20% 88%;
-  --border: 25 8% 16%;
-  --input: 25 8% 18%;
-  --ring: 16 72% 56%;
+  --background: 222 53% 7%;
+  --foreground: 210 20% 93%;
+  --card: 224 35% 13%;
+  --card-foreground: 210 20% 93%;
+  --primary: 207 96% 54%;
+  --primary-foreground: 222 53% 7%;
+  --secondary: 222 28% 16%;
+  --secondary-foreground: 210 20% 93%;
+  --muted: 222 22% 15%;
+  --muted-foreground: 215 15% 52%;
+  --accent: 222 22% 18%;
+  --accent-foreground: 210 20% 93%;
+  --destructive: 0 63% 42%;
+  --destructive-foreground: 210 20% 93%;
+  --border: 222 18% 18%;
+  --input: 222 18% 20%;
+  --ring: 207 96% 54%;
   --radius: 0.625rem;
 }
 
-/* ── Light mode — warm paper ────────────────────────────────── */
+/* ── Light mode — cool, clean ───────────────────────────────── */
 .light {
-  --background: 38 40% 97%;
-  --foreground: 25 30% 15%;
-  --card: 36 35% 94%;
-  --card-foreground: 25 30% 15%;
-  --primary: 16 65% 43%;
-  --primary-foreground: 38 40% 97%;
-  --secondary: 30 20% 90%;
-  --secondary-foreground: 25 30% 15%;
-  --muted: 30 15% 91%;
-  --muted-foreground: 25 12% 45%;
-  --accent: 30 18% 88%;
-  --accent-foreground: 25 30% 15%;
-  --destructive: 0 72% 52%;
-  --destructive-foreground: 38 40% 97%;
-  --border: 30 18% 85%;
-  --input: 30 18% 85%;
-  --ring: 16 65% 43%;
+  --background: 210 25% 98%;
+  --foreground: 222 40% 15%;
+  --card: 210 18% 96%;
+  --card-foreground: 222 40% 15%;
+  --primary: 207 88% 42%;
+  --primary-foreground: 210 25% 98%;
+  --secondary: 210 15% 92%;
+  --secondary-foreground: 222 40% 15%;
+  --muted: 210 12% 93%;
+  --muted-foreground: 215 12% 47%;
+  --accent: 210 15% 90%;
+  --accent-foreground: 222 40% 15%;
+  --destructive: 0 75% 55%;
+  --destructive-foreground: 210 25% 98%;
+  --border: 210 16% 88%;
+  --input: 210 16% 88%;
+  --ring: 207 88% 42%;
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */
@@ -60,7 +60,7 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family:
-    "Bricolage Grotesque",
+    "Outfit",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
@@ -68,19 +68,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-/* ── Film grain — atmospheric texture ─────────────────────────── */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.03;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 code,
@@ -126,15 +113,15 @@ button:active:not(:disabled) {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.2);
+  background: hsl(var(--muted-foreground) / 0.18);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.35);
+  background: hsl(var(--muted-foreground) / 0.32);
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.18) transparent;
 }
 
 /* ── Prose theme overrides ────────────────────────────────────── */
@@ -288,25 +275,16 @@ button:active:not(:disabled) {
 @keyframes pulseGlow {
   0%,
   100% {
-    opacity: 0.3;
+    opacity: 0.25;
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.5;
     transform: scale(1.15);
   }
 }
 .pulse-glow {
   animation: pulseGlow 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
 }
 
 /* ── Reduced motion ───────────────────────────────────────────── */

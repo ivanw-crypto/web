@@ -71,17 +71,17 @@ const AssistantTurnCard = React.memo(function AssistantTurnCard({
   return (
     <div
       data-testid="assistant-card"
-      className="mx-4 my-2 rounded-2xl bg-card px-5 py-4 shadow-md ring-1 ring-border/40"
+      className="mx-4 my-2.5 rounded-2xl bg-card px-5 py-5 shadow-lg shadow-black/8 ring-1 ring-border/40"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Card header */}
-      <div className="mb-3 flex items-center gap-2.5">
-        <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-[9px] font-bold tracking-wider text-primary-foreground shadow-sm">
+      <div className="mb-3.5 flex items-center gap-2.5">
+        <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-[9px] font-bold tracking-wider text-primary-foreground shadow-sm shadow-primary/20">
           AI
         </div>
         <span className="text-sm font-semibold text-foreground">Claude</span>
-        <span className="text-xs text-muted-foreground/60">
+        <span className="text-xs text-muted-foreground/50">
           {formattedTime}
         </span>
         {hovered && fullText && (
@@ -157,15 +157,18 @@ export default function ChatMessagesPane({
         ref={scrollRef}
         className="flex flex-1 items-center justify-center overflow-y-auto"
       >
-        <div className="fade-in flex flex-col items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-xs font-bold tracking-wider text-primary-foreground shadow-sm">
-            AI
+        <div className="fade-in flex flex-col items-center gap-3">
+          <div className="relative">
+            <div className="pulse-glow absolute -inset-3 rounded-full bg-primary/20 blur-xl" />
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-primary text-sm font-bold tracking-wider text-primary-foreground shadow-lg shadow-primary/25">
+              AI
+            </div>
           </div>
           <p className="text-lg font-semibold text-foreground">
             Welcome back!
           </p>
           <p className="text-sm text-muted-foreground/60">
-            Start a conversation with Claude
+            What shall we explore today?
           </p>
         </div>
       </div>
@@ -175,7 +178,7 @@ export default function ChatMessagesPane({
   return (
     <div className="relative flex-1 overflow-hidden">
       {/* Top gradient overlay */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b from-background to-transparent" />
       <div
         ref={scrollRef}
         onScroll={handleScroll}
@@ -202,14 +205,14 @@ export default function ChatMessagesPane({
         </div>
       </div>
       {/* Bottom gradient overlay */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t from-background to-transparent" />
 
       {showScrollBtn && (
         <button
           type="button"
           onClick={scrollToBottom}
           title="Scroll to bottom"
-          className="scale-in absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:brightness-110"
+          className="scale-in absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35"
         >
           <ChevronDown className="h-4 w-4" />
         </button>

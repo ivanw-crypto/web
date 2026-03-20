@@ -55,9 +55,9 @@ export default function ClaudeStatus({
     elapsedTime > 0 ? formatElapsedTime(elapsedTime) : "";
 
   return (
-    <div className="px-4 py-1.5">
+    <div className="px-4 py-2">
       <div
-        className="flex items-center gap-2"
+        className="flex items-center gap-2.5"
         role="status"
         aria-live="polite"
       >
@@ -69,7 +69,7 @@ export default function ClaudeStatus({
         <span className="text-sm font-medium text-muted-foreground">
           {statusText}
           {elapsedLabel && (
-            <span className="ml-1.5 tabular-nums font-normal text-muted-foreground/40">
+            <span className="ml-1.5 tabular-nums font-normal text-muted-foreground/35">
               · {elapsedLabel}
             </span>
           )}

@@ -100,7 +100,7 @@ function NavButton({
       onClick={onClick}
       className={`relative flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-150 ${
         active
-          ? "bg-primary/15 text-primary shadow-sm ring-1 ring-primary/20"
+          ? "bg-primary/15 text-primary shadow-sm shadow-primary/10 ring-1 ring-primary/20"
           : "text-muted-foreground hover:bg-accent hover:text-foreground"
       }`}
     >
@@ -136,7 +136,7 @@ function ResetButton({ csrfFetch }: { csrfFetch: (input: RequestInfo | URL, init
           onClick={() => setOpen(false)}
         >
           <div
-            className="mx-4 w-full max-w-sm rounded-xl border border-border bg-card p-6 shadow-2xl"
+            className="mx-4 w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="mb-2 text-base font-semibold text-foreground">
@@ -153,14 +153,14 @@ function ResetButton({ csrfFetch }: { csrfFetch: (input: RequestInfo | URL, init
             <div className="flex justify-end gap-2">
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-accent"
+                className="rounded-xl px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-accent"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                className="rounded-lg bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground hover:opacity-90"
+                className="rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground shadow-sm hover:opacity-90"
               >
                 Reset
               </button>

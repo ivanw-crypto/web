@@ -1,51 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "@xterm/xterm/css/xterm.css";
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @config "../tailwind.config.js";
 
-/* ── Dark mode (default) ──────────────────────────────────────── */
+/* ── Dark mode (default) — "Terra" warm earth-tone palette ──── */
 :root {
-  --background: 220 26% 7%;
-  --foreground: 213 31% 91%;
-  --card: 215 28% 10%;
-  --card-foreground: 213 31% 91%;
-  --primary: 212 100% 67%;
-  --primary-foreground: 220 26% 7%;
-  --secondary: 215 14% 15%;
-  --secondary-foreground: 213 31% 91%;
-  --muted: 215 14% 15%;
-  --muted-foreground: 215 13% 55%;
-  --accent: 215 14% 18%;
-  --accent-foreground: 213 31% 91%;
-  --destructive: 0 63% 40%;
-  --destructive-foreground: 213 31% 91%;
-  --border: 215 19% 15%;
-  --input: 215 14% 20%;
-  --ring: 212 100% 67%;
-  --radius: 0.5rem;
+  --background: 25 15% 6%;
+  --foreground: 35 20% 88%;
+  --card: 25 12% 10%;
+  --card-foreground: 35 20% 88%;
+  --primary: 16 72% 56%;
+  --primary-foreground: 35 40% 96%;
+  --secondary: 25 10% 14%;
+  --secondary-foreground: 35 20% 88%;
+  --muted: 25 8% 14%;
+  --muted-foreground: 25 10% 52%;
+  --accent: 25 10% 17%;
+  --accent-foreground: 35 20% 88%;
+  --destructive: 0 62% 42%;
+  --destructive-foreground: 35 20% 88%;
+  --border: 25 8% 16%;
+  --input: 25 8% 18%;
+  --ring: 16 72% 56%;
+  --radius: 0.625rem;
 }
 
-/* ── Light mode ───────────────────────────────────────────────── */
+/* ── Light mode — warm paper ────────────────────────────────── */
 .light {
-  --background: 0 0% 100%;
-  --foreground: 215 28% 17%;
-  --card: 210 17% 97%;
-  --card-foreground: 215 28% 17%;
-  --primary: 213 94% 40%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 213 17% 93%;
-  --secondary-foreground: 215 28% 17%;
-  --muted: 213 17% 93%;
-  --muted-foreground: 215 18% 47%;
-  --accent: 213 17% 91%;
-  --accent-foreground: 215 28% 17%;
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 213 25% 88%;
-  --input: 213 25% 88%;
-  --ring: 213 94% 40%;
+  --background: 38 40% 97%;
+  --foreground: 25 30% 15%;
+  --card: 36 35% 94%;
+  --card-foreground: 25 30% 15%;
+  --primary: 16 65% 43%;
+  --primary-foreground: 38 40% 97%;
+  --secondary: 30 20% 90%;
+  --secondary-foreground: 25 30% 15%;
+  --muted: 30 15% 91%;
+  --muted-foreground: 25 12% 45%;
+  --accent: 30 18% 88%;
+  --accent-foreground: 25 30% 15%;
+  --destructive: 0 72% 52%;
+  --destructive-foreground: 38 40% 97%;
+  --border: 30 18% 85%;
+  --input: 30 18% 85%;
+  --ring: 16 65% 43%;
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */
@@ -60,7 +60,7 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family:
-    "IBM Plex Sans",
+    "Bricolage Grotesque",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
@@ -68,6 +68,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* ── Film grain — atmospheric texture ─────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 code,
@@ -85,12 +98,12 @@ textarea,
 select,
 [role="button"] {
   transition:
-    background-color 140ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 140ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 140ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 140ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 100ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 160ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 120ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── Active states ────────────────────────────────────────────── */
@@ -100,7 +113,7 @@ button:active:not(:disabled) {
 
 /* ── Focus-visible ────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid hsl(var(--ring) / 0.6);
   outline-offset: 2px;
 }
 
@@ -113,15 +126,15 @@ button:active:not(:disabled) {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(127, 137, 156, 0.28);
+  background: hsl(var(--muted-foreground) / 0.2);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(127, 137, 156, 0.5);
+  background: hsl(var(--muted-foreground) / 0.35);
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(127, 137, 156, 0.28) transparent;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
 }
 
 /* ── Prose theme overrides ────────────────────────────────────── */
@@ -138,7 +151,7 @@ button:active:not(:disabled) {
   --tw-prose-bullets: hsl(var(--muted-foreground));
   --tw-prose-hr: hsl(var(--border));
   --tw-prose-quotes: hsl(var(--foreground));
-  --tw-prose-quote-borders: hsl(var(--primary) / 0.4);
+  --tw-prose-quote-borders: hsl(var(--primary) / 0.3);
   --tw-prose-captions: hsl(var(--muted-foreground));
   --tw-prose-code: hsl(var(--foreground));
   --tw-prose-pre-code: hsl(var(--foreground));
@@ -150,7 +163,7 @@ button:active:not(:disabled) {
 .prose pre {
   background-color: hsl(var(--muted));
   border: 1px solid hsl(var(--border));
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   overflow-x: auto;
   font-size: 0.875rem;  line-height: 1.7;
 }
@@ -166,11 +179,11 @@ button:active:not(:disabled) {
 }
 
 .prose :not(pre) > code {
-  background-color: hsl(var(--muted));
+  background-color: hsl(var(--muted) / 0.6);
   padding: 0.15em 0.4em;
-  border-radius: 0.25rem;
+  border-radius: 0.375rem;
   font-size: 0.875em;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid hsl(var(--border) / 0.6);
 }
 
 .prose table {
@@ -183,9 +196,13 @@ button:active:not(:disabled) {
   color: hsl(var(--primary));
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: hsl(var(--primary) / 0.3);
+}
+.prose a:hover {
+  text-decoration-color: hsl(var(--primary));
 }
 .prose blockquote {
-  border-left-color: hsl(var(--primary) / 0.4);
+  border-left-color: hsl(var(--primary) / 0.3);
 }
 .prose hr {
   border-color: hsl(var(--border));
@@ -197,7 +214,7 @@ button:active:not(:disabled) {
   60%,
   100% {
     transform: translateY(0);
-    opacity: 0.4;
+    opacity: 0.35;
   }
   30% {
     transform: translateY(-3px);
@@ -205,7 +222,7 @@ button:active:not(:disabled) {
   }
 }
 .thinking-dot {
-  animation: chatDot 1.4s ease-in-out infinite;
+  animation: chatDot 1.5s ease-in-out infinite;
 }
 .thinking-dot:nth-child(2) {
   animation-delay: 0.15s;
@@ -225,7 +242,7 @@ button:active:not(:disabled) {
   }
 }
 .message-slide-in {
-  animation: messageSlideIn 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: messageSlideIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeIn {
@@ -237,13 +254,13 @@ button:active:not(:disabled) {
   }
 }
 .fade-in {
-  animation: fadeIn 200ms ease-out forwards;
+  animation: fadeIn 250ms ease-out forwards;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -251,13 +268,13 @@ button:active:not(:disabled) {
   }
 }
 .fade-in-up {
-  animation: fadeInUp 200ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeInUp 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.85);
   }
   to {
     opacity: 1;
@@ -265,7 +282,31 @@ button:active:not(:disabled) {
   }
 }
 .scale-in {
-  animation: scaleIn 150ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: scaleIn 200ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* ── Reduced motion ───────────────────────────────────────────── */

@@ -45,20 +45,20 @@ const MessageComponent = memo(
         >
           <div className="relative max-w-[75%] sm:max-w-lg">
             {hovered && (
-              <div className="absolute -left-8 top-1">
+              <div className="fade-in absolute -left-8 top-1">
                 <MessageCopyControl
                   content={message.content}
                   messageType="user"
                 />
               </div>
             )}
-            <div className="rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-base text-primary-foreground shadow-sm">
+            <div className="rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-base text-primary-foreground shadow-md ring-1 ring-primary/20">
               <div className="whitespace-pre-wrap break-words leading-relaxed">
                 {message.content}
               </div>
             </div>
-            <div className="mt-0.5 pr-0.5 text-right">
-              <span className="text-xs text-muted-foreground/50">
+            <div className="mt-1 pr-0.5 text-right">
+              <span className="text-[11px] tracking-wide text-muted-foreground/40">
                 {formattedTime}
               </span>
             </div>
@@ -70,8 +70,8 @@ const MessageComponent = memo(
     if (message.type === "error") {
       return (
         <div className="px-4 py-0.5">
-          <div className="rounded-xl border border-destructive/30 bg-destructive/8 px-4 py-2.5 text-base text-destructive">
-            <span className="font-medium">Error: </span>
+          <div className="rounded-xl border border-destructive/20 bg-destructive/5 px-4 py-3 text-base text-destructive shadow-sm">
+            <span className="font-semibold">Error: </span>
             {message.content}
           </div>
         </div>

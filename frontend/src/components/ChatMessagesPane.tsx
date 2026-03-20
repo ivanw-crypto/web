@@ -71,7 +71,7 @@ const AssistantTurnCard = React.memo(function AssistantTurnCard({
   return (
     <div
       data-testid="assistant-card"
-      className="mx-4 my-2 rounded-2xl bg-card px-5 py-4 shadow-sm ring-1 ring-border/50"
+      className="mx-4 my-2 rounded-2xl bg-card px-5 py-4 shadow-md ring-1 ring-border/40"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -85,7 +85,9 @@ const AssistantTurnCard = React.memo(function AssistantTurnCard({
           {formattedTime}
         </span>
         {hovered && fullText && (
-          <MessageCopyControl content={fullText} messageType="assistant" />
+          <span className="fade-in">
+            <MessageCopyControl content={fullText} messageType="assistant" />
+          </span>
         )}
       </div>
 
@@ -155,15 +157,25 @@ export default function ChatMessagesPane({
         ref={scrollRef}
         className="flex flex-1 items-center justify-center overflow-y-auto"
       >
-        <p className="fade-in text-lg font-semibold text-foreground">
-          Welcome back!
-        </p>
+        <div className="fade-in flex flex-col items-center gap-2">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-xs font-bold tracking-wider text-primary-foreground shadow-sm">
+            AI
+          </div>
+          <p className="text-lg font-semibold text-foreground">
+            Welcome back!
+          </p>
+          <p className="text-sm text-muted-foreground/60">
+            Start a conversation with Claude
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="relative flex-1 overflow-hidden">
+      {/* Top gradient overlay */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b from-background to-transparent" />
       <div
         ref={scrollRef}
         onScroll={handleScroll}
@@ -189,13 +201,15 @@ export default function ChatMessagesPane({
           })}
         </div>
       </div>
+      {/* Bottom gradient overlay */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t from-background to-transparent" />
 
       {showScrollBtn && (
         <button
           type="button"
           onClick={scrollToBottom}
           title="Scroll to bottom"
-          className="absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:opacity-90"
+          className="scale-in absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:brightness-110"
         >
           <ChevronDown className="h-4 w-4" />
         </button>

@@ -190,7 +190,7 @@ export default function ChatComposer({
                 return (
                   <span
                     key={file.name + "-" + i}
-                    className="flex items-center gap-1 rounded-full border border-border bg-muted px-2.5 py-0.5 text-sm text-foreground"
+                    className="flex items-center gap-1 rounded-full border border-border bg-muted/80 px-2.5 py-1 text-sm text-foreground shadow-sm"
                   >
                     {thumbUrl ? (
                       <img src={thumbUrl} alt="" className="h-5 w-5 rounded object-cover" />
@@ -212,7 +212,7 @@ export default function ChatComposer({
           )}
 
           {/* Input row */}
-          <div className="flex items-center gap-2 rounded-2xl border border-border bg-background px-3 py-2 shadow-sm focus-within:border-primary/40 focus-within:ring-1 focus-within:ring-primary/20">
+          <div className="flex items-center gap-2 rounded-2xl border border-border bg-background px-3 py-2 shadow-sm transition-shadow duration-200 focus-within:border-primary/40 focus-within:shadow-md focus-within:ring-2 focus-within:ring-primary/15">
             {/* File upload button */}
             <button
               type="button"
@@ -266,7 +266,7 @@ export default function ChatComposer({
                   blocked || (!input.trim() && pendingFiles.length === 0)
                 }
                 title="Send"
-                className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground"
+                className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground hover:brightness-110 hover:shadow-md disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50"
               >
                 <Send className="h-3.5 w-3.5" />
               </button>

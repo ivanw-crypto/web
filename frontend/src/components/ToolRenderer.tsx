@@ -17,7 +17,7 @@ export default function ToolRenderer({
   autoExpandTools,
 }: ToolRendererProps) {
   return (
-    <div className="my-0.5 overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+    <div className="my-0.5 overflow-hidden rounded-lg border border-border/80 bg-card shadow-sm ring-1 ring-border/10">
       <ToolHeader
         toolName={toolName}
         toolInput={toolInput}
@@ -94,7 +94,7 @@ function ToolHeader({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-accent/50 active:bg-accent/70"
+        className="flex w-full items-center gap-2 px-3 py-2 text-left transition-colors duration-100 hover:bg-accent/50 active:bg-accent/70"
       >
         <Wrench className="h-3 w-3 flex-shrink-0 text-muted-foreground/70" />
         <span className="flex-1 truncate text-sm">
@@ -266,7 +266,7 @@ function ToolResultView({ result }: { result: ToolResult }) {
 
   return (
     <div
-      className={`border-t border-border px-3 py-2 ${result.isError ? "bg-destructive/5" : "bg-muted/30"}`}
+      className={`border-t border-border px-3 py-2.5 ${result.isError ? "bg-destructive/5" : "bg-muted/20"}`}
     >
       {result.isError && (
         <div className="mb-1 text-xs font-semibold uppercase tracking-widest text-destructive">

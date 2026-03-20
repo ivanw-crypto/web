@@ -75,7 +75,7 @@ export default function Sidebar({
           placeholder="Search conversations…"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full rounded-md border border-border bg-background py-1 pl-7 pr-7 text-sm text-foreground placeholder-muted-foreground/50 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+          className="w-full rounded-lg border border-border bg-background py-1.5 pl-7 pr-7 text-sm text-foreground placeholder-muted-foreground/50 transition-shadow focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/15"
         />
         {searchQuery && (
           <button
@@ -111,7 +111,7 @@ export default function Sidebar({
       <div className="border-t border-border p-2">
         <button
           onClick={onNewChat}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary/10 px-3 py-2 text-sm font-medium text-primary hover:bg-primary/20 active:scale-[.98]"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary/10 px-3 py-2.5 text-sm font-medium text-primary ring-1 ring-primary/10 hover:bg-primary/20 hover:ring-primary/20 active:scale-[.98]"
         >
           <Plus className="h-4 w-4" />
           New Chat
@@ -141,7 +141,7 @@ function ConversationRow({
 
   return (
     <div
-      className={`group relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm ${
+      className={`group relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm transition-colors duration-100 ${
         isActive
           ? "border-l-2 border-primary bg-primary/8 pl-[10px] text-foreground"
           : "text-muted-foreground hover:bg-accent hover:text-foreground"
@@ -167,7 +167,7 @@ function ConversationRow({
             e.stopPropagation();
             onDelete();
           }}
-          className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded text-muted-foreground hover:text-destructive"
+          className="fade-in flex h-5 w-5 flex-shrink-0 items-center justify-center rounded text-muted-foreground hover:text-destructive"
         >
           <Trash2 className="h-3 w-3" />
         </button>

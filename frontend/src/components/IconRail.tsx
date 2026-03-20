@@ -33,7 +33,7 @@ export default function IconRail({
   onToggleDarkMode,
 }: IconRailProps) {
   return (
-    <div className="hidden w-12 flex-col items-center gap-0.5 border-r border-border bg-card py-3 md:flex">
+    <div className="hidden w-12 flex-col items-center gap-1 border-r border-border bg-card py-3 md:flex">
       <NavButton
         active={activeTab === "chat"}
         title="Chat"
@@ -55,7 +55,7 @@ export default function IconRail({
         <FolderOpen className="h-4 w-4" />
       </NavButton>
 
-      <div className="mt-auto flex flex-col items-center gap-0.5">
+      <div className="mt-auto flex flex-col items-center gap-1">
         {hasUserRootfs && <ResetButton csrfFetch={csrfFetch} />}
         <NavButton
           title={darkMode ? "Light mode" : "Dark mode"}
@@ -98,7 +98,7 @@ function NavButton({
     <button
       title={title}
       onClick={onClick}
-      className={`relative flex h-9 w-9 items-center justify-center rounded-lg ${
+      className={`relative flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-150 ${
         active
           ? "bg-primary/15 text-primary shadow-sm ring-1 ring-primary/20"
           : "text-muted-foreground hover:bg-accent hover:text-foreground"
